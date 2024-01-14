@@ -4,6 +4,26 @@ import (
 	"fmt"
 )
 
+// Constantes
+const pi float32 = 3.14
+
+const (
+	HOST string = "google.com"
+	x    int    = 0b1010
+	y    int    = 0o12
+	z    int    = 0xFF
+)
+
+const (
+	domingo = iota
+	lunes
+	martes
+	miercoles
+	jueves
+	viernes
+	sabado
+)
+
 func main() {
 	// Declaracion de Variables
 	var firstName, lastName string
@@ -48,4 +68,22 @@ func main() {
 		years,
 	)
 
+	fmt.Println(
+		HOST,
+		pi,
+		x,
+		y,
+		z,
+	)
+
+	fmt.Println("Dias de la semana")
+	fmt.Println(
+		domingo,
+		lunes,
+		martes,
+		miercoles,
+		jueves,
+		viernes,
+		sabado,
+	)
 }
