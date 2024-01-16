@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
 	var myInt32 int32 = 56
@@ -11,4 +14,11 @@ func main() {
 	fmt.Println("Suma de diferentes tipos de enteros", int32(myInt16)+myInt32)
 	fmt.Println("Suma de diferentes de entero y floatante", float32(myInt16)+myFloat32)
 
+	myStrInt := "804"
+	myStrToIntConversion, _ := strconv.Atoi(myStrInt)
+
+	fmt.Println("Conversion de String a Entero", myStrToIntConversion)
+	fmt.Println("Suma con valor de str a entero convertido", myStrToIntConversion+int(myInt32))
+
+	// int != int32 != int64
 }
