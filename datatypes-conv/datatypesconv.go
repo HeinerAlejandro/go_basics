@@ -25,4 +25,5 @@ func main() {
 	myIntToStr := strconv.Itoa(int(myInt32))
 
 	fmt.Println("Convertir de Int a Str", myIntToStr)
+	fmt.Println("Concatenando valores", myIntToStr+myIntToStr)
 }
