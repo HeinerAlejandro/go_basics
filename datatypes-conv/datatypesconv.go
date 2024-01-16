@@ -21,4 +21,8 @@ func main() {
 	fmt.Println("Suma con valor de str a entero convertido", myStrToIntConversion+int(myInt32))
 
 	// int != int32 != int64
+
+	myIntToStr := strconv.Itoa(int(myInt32))
+
+	fmt.Println("Convertir de Int a Str", myIntToStr)
 }
