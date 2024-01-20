@@ -26,4 +26,23 @@ func main() {
 
 	fmt.Println("Convertir de Int a Str", myIntToStr)
 	fmt.Println("Concatenando valores", myIntToStr+myIntToStr)
+
+	// Println agrega un salto de linea al final
+	// Print no agrega salto de linea al final asi que la salida del siguiente comando seria 56-804
+	fmt.Print(myIntToStr, "-", myStrToIntConversion, "\n")
+
+	// Tambien puedo imprimir con formato especificado con la siguiente funcion
+	fmt.Printf("Soy %s, tengo %d anios y me gusta %s\n", "Heiner Enis", 25, "Programar")
+	// Ahora obtengo el formato sin imprirlo en pantalla
+	about := fmt.Sprintf("Soy %s, tengo %d anios y me gusta %s", "Heiner Enis", 25, "Programar")
+	fmt.Printf("Esta es la informacion sobre mi: %s", about)
+
+	//Podemos ingresar datos desde pantalla con:
+
+	var country string
+
+	fmt.Print("Ingrese el nombre del pais en donde vive: ")
+	fmt.Scanln(&country)
+
+	fmt.Printf("Vivo en: %s", country)
 }
