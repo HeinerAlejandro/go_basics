@@ -13,4 +13,12 @@ func main() {
 		}
 		fmt.Println(i)
 	}
+
+	for j := 1; j <= 10; j++ {
+
+		if j == 6 {
+			break
+		}
+		fmt.Println(j)
+	}
 }
