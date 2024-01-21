@@ -62,5 +62,5 @@ func sum_mult_values_return_var(a, b int) (sum int, mult int) {
 	sum = a + b
 	mult = a * b
 
-	return // Here de function knows how many and which variables to return based on de named declaration
+	return // Here the function knows how many and which variables to return based on de named declaration
 }
