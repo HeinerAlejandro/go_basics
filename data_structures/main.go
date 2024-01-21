@@ -32,4 +32,41 @@ func main() {
 
 	var matriz_2d = [3][3]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
 	fmt.Println(matriz_2d)
+
+	// Slice (Rebanada)
+	// It has any number between brackets. It's a dynamic structure
+
+	var slice []int // or var slice = []int{1,2,3,4,...,n}
+	fmt.Println(slice)
+
+	var sliceTwo = []string{
+		"Lunes",
+		"Martes",
+		"Miercoles",
+		"Jueves",
+		"Viernes",
+		"Sabado",
+		"Domingo",
+	}
+	fmt.Println("My First Slice:")
+	fmt.Println(sliceTwo)
+
+	// Slice from another
+
+	sliceFromSliceTwo := sliceTwo[0 : cap(sliceTwo)-2]
+	fmt.Println("Creating a Slice from Another")
+	fmt.Println(sliceFromSliceTwo)
+
+	//Adding Elements
+
+	sliceFromSliceTwo = append(sliceFromSliceTwo, "Word 1", "Word 2", "Word 3")
+	println(sliceFromSliceTwo)
+	println(len(sliceFromSliceTwo))
+	println(cap(sliceFromSliceTwo))
+
+	fmt.Println("Eliminando un elemento")
+
+	sliceFromSliceTwo = append(sliceFromSliceTwo[:2], sliceFromSliceTwo[3:]...)
+
+	fmt.Println(sliceFromSliceTwo)
 }
