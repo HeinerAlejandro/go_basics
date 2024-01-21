@@ -69,4 +69,24 @@ func main() {
 	sliceFromSliceTwo = append(sliceFromSliceTwo[:2], sliceFromSliceTwo[3:]...)
 
 	fmt.Println(sliceFromSliceTwo)
+
+	// crear rebanada con make (Type, long, capacity)
+	sliceX := make([]int, 5)
+	sliceX[0] = 10
+	sliceX[1] = 11
+	sliceX[2] = 12
+	sliceX[3] = 18
+	sliceX[4] = 20
+
+	sliceY := []int{1, 2, 3, 4, 5}
+
+	fmt.Println(sliceX)
+	fmt.Println(sliceY)
+
+	composedSlice := append(sliceY, sliceX...)
+	// Con copy se copia el contenido de un slice a otro(se sobreescriben)
+	copy(sliceX, sliceY)
+	fmt.Println(composedSlice)
+	fmt.Println("Using Copy")
+	fmt.Println(sliceX)
 }
