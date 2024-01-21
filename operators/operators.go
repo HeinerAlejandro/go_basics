@@ -21,4 +21,8 @@ func main() {
 		"SQRt2", math.Sqrt2,
 		"SQRtPhi", math.SqrtPhi,
 	)
+	sqrt260 := math.Sqrt(60)
+	sqrt360 := math.Cbrt(60)
+	fmt.Printf("Esta es la Razis Cuadrada de 60: %.4f", sqrt260)
+	fmt.Printf("Esta es la Razis Cubica de 60: %.4f", sqrt360)
 }
