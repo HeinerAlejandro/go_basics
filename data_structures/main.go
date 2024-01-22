@@ -89,4 +89,40 @@ func main() {
 	fmt.Println(composedSlice)
 	fmt.Println("Using Copy")
 	fmt.Println(sliceX)
+
+	// Maps
+
+	colors := map[string]string{
+		"red":   "ff0000",
+		"blue":  "0000FF",
+		"green": "#008000",
+	}
+
+	fmt.Printf("Available Colors: %v\n", colors)
+
+	// Get Value
+
+	valor, ok := colors["red"]
+
+	// if ok is false, valor will be an empty string
+
+	if ok {
+		fmt.Printf("Obtained Color: %v - %v\n", ok, valor)
+	} else {
+		fmt.Printf("El Color: %v No existe (%v)\n", ok, valor)
+	}
+
+	// Deleting Key
+
+	delete(colors, "blue")
+
+	fmt.Printf("After Delete: %v\n\n\n", colors)
+
+	fmt.Printf("Iterating by key\n\n")
+	// Iter through map
+
+	for index, valor := range colors {
+		fmt.Printf("Key: %s - Valor: %s\n", index, valor)
+	}
+
 }
