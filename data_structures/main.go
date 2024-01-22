@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
+// To create a na structure we use type word
+
+type Persona struct {
+	nombre       string
+	edad         int
+	correo       string
+	nacionalidad string
+}
+
 func main() {
 	//First we start from matrixes
 	//var matriz [5]int for declaration
@@ -124,5 +133,19 @@ func main() {
 	for index, valor := range colors {
 		fmt.Printf("Key: %s - Valor: %s\n", index, valor)
 	}
+
+	// using structure
+
+	fmt.Printf("\nUsing structures\n")
+
+	persona := Persona{"", 0, "", "Venezolana"}
+	persona2 := Persona{"Maria Del Rey", 23, "mariadelrey@gmail.com", "Venezolana"}
+
+	persona.nombre = "Heiner Enis"
+	persona.edad = 25
+	persona.correo = "alguncorreo@gmail.com"
+
+	fmt.Println(persona)
+	fmt.Println(persona2)
 
 }
