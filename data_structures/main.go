@@ -11,6 +11,11 @@ type Persona struct {
 	nacionalidad string
 }
 
+// Structure Method, the receptor goes before the func name
+func (person *Persona) caminar() {
+	fmt.Printf("Hello I'm %s and I'm Walking through the park\n", person.nombre)
+}
+
 func main() {
 	//First we start from matrixes
 	//var matriz [5]int for declaration
@@ -148,4 +153,23 @@ func main() {
 	fmt.Println(persona)
 	fmt.Println(persona2)
 
+	// Apuntadores
+	var x int = 10
+	var p *int = &x
+
+	fmt.Printf("\nEste es mi valor: X DIR: %v - P DIR: %v\n", &x, p)
+	editar(&x)
+	fmt.Println("Despues de modificacion de apuntador:")
+	fmt.Println(*p)
+
+	// creating a Person
+
+	personHeiner := Persona{"Heiner Enis", 25, "heiner@gmail.com", "Venezolana"}
+
+	personHeiner.caminar()
+
+}
+
+func editar(x *int) {
+	*x = 23
 }
