@@ -14,4 +14,15 @@ func main() {
 	myBook.SetPages(100)
 
 	myBook.PrintInfo()
+
+	myTextBook := book.NewTextBook(
+		"El Arte de Amar",
+		"Desconocido",
+		250,
+		"Planeta",
+		"2",
+	)
+
+	myTextBook.PrintInfo()
+
 }

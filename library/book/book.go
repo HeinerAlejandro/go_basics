@@ -8,6 +8,20 @@ type Book struct {
 	pages  int
 }
 
+type TextBook struct {
+	Book
+	editorial string
+	level     string
+}
+
+func NewTextBook(title, author string, pages int, editorial, level string) *TextBook {
+	return &TextBook{
+		Book:      Book{title, author, pages},
+		editorial: editorial,
+		level:     level,
+	}
+}
+
 func (book *Book) PrintInfo() {
 	fmt.Printf("'%s'-Author:%s-Pages:%d\n", book.title, book.author, book.pages)
 }
@@ -38,4 +52,8 @@ func NewBook(title string, author string, pages int) *Book {
 		author: author,
 		pages:  pages,
 	}
+}
+
+func (book *TextBook) PrintInfo() {
+	fmt.Printf("'%s'-Author:%s-Pages:%d-editorial:%s-level: %s\n", book.title, book.author, book.pages, book.editorial, book.level)
 }
