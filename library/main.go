@@ -3,11 +3,11 @@ package main
 import "library/book"
 
 func main() {
-	var myBook = book.Book{
-		Title:  "El Arte de Amar",
-		Author: "Walter Riso",
-		Pages:  250,
-	}
+	var myBook = book.NewBook(
+		"El Arte de Amar",
+		"Walter Riso",
+		250,
+	)
 
 	myBook.PrintInfo()
 }
