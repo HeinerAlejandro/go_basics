@@ -1,6 +1,9 @@
 package main
 
-import "library/book"
+import (
+	"library/animal"
+	"library/book"
+)
 
 func main() {
 	var myBook = book.NewBook(
@@ -27,4 +30,15 @@ func main() {
 
 	book.Print(myBook)
 	book.Print(myTextBook)
+
+	dog := animal.Dog{
+		Nombre: "Floppy",
+	}
+
+	cat := animal.Cat{
+		Nombre: "Bombonkan",
+	}
+
+	animal.DoSound(&dog)
+	animal.DoSound(&cat)
 }
