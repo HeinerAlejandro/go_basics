@@ -14,6 +14,14 @@ type TextBook struct {
 	level     string
 }
 
+type Printable interface {
+	PrintInfo()
+}
+
+func Print(printable Printable) {
+	printable.PrintInfo()
+}
+
 func NewTextBook(title, author string, pages int, editorial, level string) *TextBook {
 	return &TextBook{
 		Book:      Book{title, author, pages},

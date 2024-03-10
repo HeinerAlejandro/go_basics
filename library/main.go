@@ -25,4 +25,6 @@ func main() {
 
 	myTextBook.PrintInfo()
 
+	book.Print(myBook)
+	book.Print(myTextBook)
 }
