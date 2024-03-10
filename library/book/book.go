@@ -3,9 +3,9 @@ package book
 import "fmt"
 
 type Book struct {
-	Title  string
-	Author string
-	Pages  int
+	title  string
+	author string
+	pages  int
 }
 
 func (book *Book) PrintInfo() {
