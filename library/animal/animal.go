@@ -15,11 +15,11 @@ type Cat struct {
 }
 
 func (dog *Dog) Sound() {
-	fmt.Println("Hago guau guauu")
+	fmt.Printf("%s hace guau guauu", dog.Nombre)
 }
 
 func (cat *Cat) Sound() {
-	fmt.Println("Hago miau miau")
+	fmt.Printf("%s hace miau miau\n", cat.Nombre)
 }
 
 func DoSound(animal Animal) {

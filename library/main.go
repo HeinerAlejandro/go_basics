@@ -41,4 +41,17 @@ func main() {
 
 	animal.DoSound(&dog)
 	animal.DoSound(&cat)
+
+	// Now Create a slice
+
+	animals := []animal.Animal{
+		&animal.Dog{Nombre: "Floppy"},
+		&animal.Cat{Nombre: "Michu michu"},
+		&animal.Cat{Nombre: "Pelu"},
+		&animal.Dog{Nombre: "Barrigas"},
+	}
+
+	for _, animal := range animals {
+		animal.Sound()
+	}
 }
