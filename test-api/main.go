@@ -21,23 +21,35 @@ func main() {
 		"https://graph.microsoft.com",
 	}
 
+	erros_channel := make(chan string, len(routes))
+
 	for _, route := range routes {
 		wg.Add(1)
-		go func(route string) {
-			checkAPI(route)
+		go func(route string, errors_channel chan string) {
+			checkAPI(route, errors_channel)
 			defer wg.Done()
-		}(route)
+		}(route, erros_channel)
 	}
 
 	wg.Wait()
+
+	for i := 0; i < len(routes); i++ {
+		fmt.Println(<-erros_channel)
+	}
 
 	elapsed := time.Since(start)
 	fmt.Printf("Tooked: %v segundos\n", elapsed.Seconds())
 }
 
-func checkAPI(path string) {
+func checkAPI(path string, ch chan string) {
 	if _, err := http.Get(path); err != nil {
-		fmt.Printf("ERROR: %s esta caido \n", err)
+		error_str := fmt.Sprintf("ERROR: %s esta caido \n", err)
+
+		ch <- error_str
+
 		return
 	}
+
+	ch <- fmt.Sprintf("%s Esta funcionando perfectamente!", path)
+
 }
