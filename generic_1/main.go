@@ -2,7 +2,9 @@ package main
 
 import "fmt"
 
-func Sum[T int | float32](nums ...T) T {
+type interger int
+
+func Sum[T int | float32 | interger](nums ...T) T {
 
 	var sum T
 
@@ -38,4 +40,12 @@ func main() {
 	)
 
 	fmt.Println(sum_floats)
+
+	sum_custom_integers := Sum[interger](
+		interger(1),
+		interger(2),
+		interger(10),
+	)
+
+	fmt.Println(sum_custom_integers)
 }
