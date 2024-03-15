@@ -4,7 +4,7 @@ import "fmt"
 
 type interger int
 
-func Sum[T int | float32 | interger](nums ...T) T {
+func Sum[T ~int | ~float32](nums ...T) T {
 
 	var sum T
 
