@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
-func Sum(nums ...int) int {
+func Sum[T int | float32](nums ...T) T {
 
-	sum := 0
+	var sum T
 
-	for num := range nums {
+	for _, num := range nums {
 		sum += num
 	}
 
@@ -14,7 +14,7 @@ func Sum(nums ...int) int {
 }
 
 func main() {
-	sum := Sum(
+	sum_ints := Sum[int](
 		1,
 		2,
 		3,
@@ -27,5 +27,15 @@ func main() {
 		10,
 	)
 
-	fmt.Println(sum)
+	fmt.Println(sum_ints)
+
+	sum_floats := Sum[float32](
+		1.5,
+		2.5,
+		5.8,
+		7.7,
+		9.9,
+	)
+
+	fmt.Println(sum_floats)
 }
