@@ -4,7 +4,11 @@ import "fmt"
 
 type interger int
 
-func Sum[T ~int | ~float32](nums ...T) T {
+type Numbers interface {
+	~int | ~uint | ~float32 | ~float64
+}
+
+func Sum[T Numbers](nums ...T) T {
 
 	var sum T
 
@@ -48,4 +52,12 @@ func main() {
 	)
 
 	fmt.Println(sum_custom_integers)
+
+	sum_interface_numbers := Sum[uint](
+		5,
+		3,
+		40,
+	)
+
+	fmt.Println(sum_interface_numbers)
 }
