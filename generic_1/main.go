@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type interger int
 
@@ -17,6 +19,16 @@ func Sum[T Numbers](nums ...T) T {
 	}
 
 	return sum
+}
+
+func Includes[T comparable](list []T, value T) bool {
+	for _, value := range list {
+		if value == value {
+			return true
+		}
+	}
+
+	return false
 }
 
 func main() {
@@ -60,4 +72,23 @@ func main() {
 	)
 
 	fmt.Println(sum_interface_numbers)
+
+	strings := []string{
+		"Hola",
+		"Estoy",
+		"usando",
+		"Golang",
+		"esta",
+		"chevere",
+	}
+
+	ints := []int{
+		90, 65, 34, 888, 21,
+	}
+
+	isInclude1 := Includes[string](strings, "Golang")
+	isInclude2 := Includes[int](ints, 34)
+
+	fmt.Printf("Estoy imprimiendo 2 resultados de la funcion include: %b y %b\n", isInclude1, isInclude2)
+
 }
