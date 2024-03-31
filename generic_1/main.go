@@ -10,6 +10,10 @@ type Numbers interface {
 	~int | ~uint | ~float32 | ~float64
 }
 
+type FilteresTypes interface {
+	Numbers | ~string
+}
+
 func Sum[T Numbers](nums ...T) T {
 
 	var sum T
@@ -28,6 +32,38 @@ func Includes[T comparable](list []T, value T) bool {
 		}
 	}
 
+	return false
+}
+
+func Filter[T FilteresTypes](list []T, CondCallback func(T) bool) []T {
+
+	newList := make([]T, 0, len(list))
+	var IsPositive bool
+
+	for _, Value := range list {
+		IsPositive = CondCallback(Value)
+
+		if IsPositive {
+			newList = append(newList, Value)
+		}
+	}
+
+	return newList
+}
+
+func CondCallback1(item int) bool {
+
+	if item > 6 {
+		return true
+	}
+	return false
+}
+
+func CondCallback2(item string) bool {
+
+	if item == "joyas" {
+		return true
+	}
 	return false
 }
 
@@ -90,5 +126,20 @@ func main() {
 	isInclude2 := Includes[int](ints, 34)
 
 	fmt.Printf("Estoy imprimiendo 2 resultados de la funcion include: %b y %b\n", isInclude1, isInclude2)
+
+	fmt.Println("Usando Filter custom function")
+
+	SliceForFilterInt := []int{
+		3, 6, 8, 9, 0,
+	}
+
+	SliceForFilterStr := []string{
+		"joyas", "calidad", "principios",
+	}
+
+	FilterFunctionResult1 := Filter[int](SliceForFilterInt, CondCallback1)
+	FilterFunctionResult2 := Filter[string](SliceForFilterStr, CondCallback2)
+
+	fmt.Printf("Result (%v) (%v)", FilterFunctionResult1, FilterFunctionResult2)
 
 }
